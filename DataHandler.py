@@ -6,7 +6,6 @@ dlogger = pd.read_csv("CR300Series_Teste1.dat", sep=",", header=1, skiprows=[2, 
 
 inverter.drop(columns=['Unnamed: 14'], inplace=True)
 
-
-inverter['Timestamp'] = pd.to_datetime(inverter['Data e horário'], infer_datetime_format=True)
+inverter['Timestamp'] = pd.to_datetime(inverter['Data e horário'], format='%d.%m.%Y %H:%M', infer_datetime_format=True)
 
 dlogger['Timestamp'] = pd.to_datetime(dlogger['TIMESTAMP'], infer_datetime_format=True)
