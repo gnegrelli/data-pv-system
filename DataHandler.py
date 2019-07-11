@@ -28,11 +28,16 @@ dataframe = dataframe.rename(index=str, columns={'Corrente CA L1|Primo 3.0-1 (# 
                                                  'Corrente CC MPP1|Primo 3.0-1 (# 1)': 'Icc1',
                                                  'Corrente CC MPP2|Primo 3.0-1 (# 1)': 'Icc2',
                                                  'Energia|Primo 3.0-1 (# 1)': 'Ect',
-                                                 'Energia MPP1|Primo 3.0-1 (# 1)': 'Et1',
-                                                 'Energia MPP2|Primo 3.0-1 (# 1)': 'Et2',
+                                                 'Energia MPP1|Primo 3.0-1 (# 1)': 'Ec1',
+                                                 'Energia MPP2|Primo 3.0-1 (# 1)': 'Ec2',
                                                  'Voltagem CA L1|Primo 3.0-1 (# 1)': 'Vac3',
                                                  'Voltagem CC MPP1|Primo 3.0-1 (# 1)': 'Vcc1',
                                                  'Voltagem CC MPP2|Primo 3.0-1 (# 1)': 'Vcc2'})
 
 dataframe['Pcc1'] = dataframe['Vcc1']*dataframe['Icc1']
 dataframe['Pcc2'] = dataframe['Vcc2']*dataframe['Icc2']
+
+dataframe.to_csv('PVData.csv', mode='w',
+                 columns=['Timestamp', 'Tc1', 'Tc2', 'v', 'd', 'G', 'Icc1', 'Icc2', 'Vcc1', 'Vcc2', 'Pcc1', 'Pcc2',
+                          'Iac3', 'Vac3', 'Ec1', 'Ec2', 'Ect'],
+                 index=False)
