@@ -21,3 +21,17 @@ dlogger['v'] = dlogger['Velocidade_Avg'].rolling(5).mean()
 dlogger['d'] = dlogger['Direcao_Avg'].rolling(5).mean()
 
 dlogger['G'] = dlogger['Irradiacao_Avg'].rolling(5).mean()
+
+dataframe = pd.merge(inverter, dlogger, on='Timestamp')
+
+dataframe = dataframe.rename(index=str, columns={'Corrente CA L1|Primo 3.0-1 (# 1)': 'Iac3',
+                                                 'Corrente CC MPP1|Primo 3.0-1 (# 1)': 'Icc1',
+                                                 'Corrente CC MPP2|Primo 3.0-1 (# 1)': 'Icc2',
+                                                 'Energia|Primo 3.0-1 (# 1)': 'Ect',
+                                                 'Energia MPP1|Primo 3.0-1 (# 1)': 'Et1',
+                                                 'Energia MPP2|Primo 3.0-1 (# 1)': 'Et2',
+                                                 'Voltagem CA L1|Primo 3.0-1 (# 1)': 'Vac3',
+                                                 'Voltagem CC MPP1|Primo 3.0-1 (# 1)': 'Vcc1',
+                                                 'Voltagem CC MPP2|Primo 3.0-1 (# 1)': 'Vcc2'})
+
+
