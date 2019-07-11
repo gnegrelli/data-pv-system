@@ -34,4 +34,5 @@ dataframe = dataframe.rename(index=str, columns={'Corrente CA L1|Primo 3.0-1 (# 
                                                  'Voltagem CC MPP1|Primo 3.0-1 (# 1)': 'Vcc1',
                                                  'Voltagem CC MPP2|Primo 3.0-1 (# 1)': 'Vcc2'})
 
-
+dataframe['Pcc1'] = dataframe['Vcc1']*dataframe['Icc1']
+dataframe['Pcc2'] = dataframe['Vcc2']*dataframe['Icc2']
