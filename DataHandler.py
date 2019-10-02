@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Import csv files
-inverter = pd.read_csv("LACO_CSV_Relatório_mensal_2019_07.csv", sep=",", skiprows=[1])
+inverter = pd.read_csv("LACO_CSV_Relatório_mensal_2019_09.csv", sep=",", skiprows=[1])
 
 dlogger = pd.read_csv("CR300Series_Teste1.dat", sep=",", header=1, skiprows=[2, 3])
 
@@ -14,7 +14,8 @@ inverter['Timestamp'] = pd.to_datetime(inverter['Data e horário'], format='%d.%
 dlogger['Timestamp'] = pd.to_datetime(dlogger['TIMESTAMP'], infer_datetime_format=True)
 
 # Find minimum wind speed (offset)
-dlogger['Velocidade_Avg'] -= dlogger['Velocidade_Avg'].min()
+# print(dlogger['Velocidade_Avg'].min())
+# dlogger['Velocidade_Avg'] -= dlogger['Velocidade_Avg'].min()
 
 # Calculate rolling mean to obtain values for every 5 minutes
 dlogger['Tc1'] = dlogger['Temp_M1_Avg'].rolling(5).mean()
