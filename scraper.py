@@ -24,3 +24,7 @@ re_captcha.send_keys('2618')
 
 # Press enter to go on
 re_captcha.send_keys(Keys.RETURN)
+
+# Click on button to display data in csv
+btn_dwnload = driver.find_element_by_name('Submit12')
+btn_dwnload.click()
