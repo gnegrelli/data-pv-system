@@ -29,4 +29,9 @@ re_captcha.send_keys(Keys.RETURN)
 btn_dwnload = driver.find_element_by_name('Submit2')
 btn_dwnload.click()
 
+# Find body of page
+body = driver.find_elements_by_tag_name('body')
 
+# Write content of body on txt file
+with open('data.txt', 'w+') as f:
+    f.write(body.text)
