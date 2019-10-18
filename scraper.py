@@ -17,6 +17,11 @@ fin_date = driver.find_element_by_name('dtafim')
 fin_date.clear()
 fin_date.send_keys('01/10/2019')
 
+# Save captcha on png
+img = driver.find_element_by_tag_name('img')
+with open('captcha.png', 'wb') as image:
+    image.write(img.screenshot_as_png)
+
 # Fill captcha value field
 re_captcha = driver.find_element_by_name('aleaNum')
 re_captcha.clear()
